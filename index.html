@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Dashboard</title>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            text-align: center;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #222;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Performance Dashboard</h1>
+
+        <p>Marks obtained by students in different subjects</p>
+
+        <canvas id="marksChart"></canvas>
+
+    </div>
+
+    <script>
+
+        const students = ["Soham", "Rahul", "Kashish", "Aman", "Priya"];
+
+        const marks = [85, 72, 91, 68, 88];
+
+        const ctx = document.getElementById("marksChart");
+
+        new Chart(ctx, {
+            type: "bar",
+
+            data: {
+                labels: students,
+
+                datasets: [{
+                    label: "Marks",
+                    data: marks
+                }]
+            },
+
+            options: {
+                responsive: true,
+
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
